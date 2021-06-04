@@ -1,0 +1,14 @@
+<%= image_tag @portfolio_item.main_image %>
+
+<h1><%= @portfolio_item.title %></h1>
+
+<em><%= @portfolio_item.subtitle %></em>
+
+<p><%= @portfolio_item.body %></p>
+
+<h2>Technologies Used: </h2>
+
+<!-- O código abaixo chama as tecnologias que estão armazenadas dentro da variável instanciada @portfolio_item -->
+<% @portfolio_item.technologies.each do |t| %>
+  <p> <%= t.name %> </p>
+<% end %>

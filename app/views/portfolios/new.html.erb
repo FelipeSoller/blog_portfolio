@@ -1,0 +1,34 @@
+<h1>Create a new Portfolio Item</h1>
+
+<%= form_for(@portfolio_item) do |form| %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subtitle %>
+    <%= form.text_field :subtitle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <ul>
+    <!-- o código abaixo indica que o formulário de tecnologias está sendo aninhado ao formulário de portfolio_item -->
+    <%= form.fields_for :technologies do |technologies_form| %>
+    <li>
+      <div class="field">
+        <%= technologies_form.label :name %>
+        <%= technologies_form.text_field :name %>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
